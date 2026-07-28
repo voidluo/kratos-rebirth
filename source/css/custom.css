@@ -272,8 +272,10 @@ html[data-theme="dark"] .kr-trans-result {
     color: #ddd;
 }
 
-/* Mobile compatibility fixes */
+/* ========== 移动端兼容修复 ========== */
 @media (max-width: 767px) {
+
+    /* --- 导航 --- */
     #kratos-mobile-topnav {
         display: block !important;
     }
@@ -309,62 +311,256 @@ html[data-theme="dark"] .kr-trans-result {
         height: 35px !important;
     }
 
+    /* --- 全局防溢出 --- */
+    body {
+        overflow-x: hidden !important;
+    }
+
+    #kratos-wrapper,
+    #kratos-page {
+        overflow-x: hidden !important;
+    }
+
+    .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* --- Banner / Cover --- */
+    .kratos-start {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
     .kratos-cover {
-        height: inherit !important;
-        padding: 3em 0 !important;
+        height: auto !important;
+        min-height: 280px !important;
+        padding: 40px 0 !important;
+        background-position: center 35% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .kratos-cover.kratos-cover-2.text-center {
-        display: block !important;
-    }
-
-    .kratos-start {
-        height: 45px !important;
+        display: flex !important;
     }
 
     .kratos-overlay {
         display: block !important;
     }
 
+    /* Banner 标题区域 - 移动端自然定位 */
+    .kratos-cover .desc.desc2 {
+        top: auto !important;
+        margin-top: 0 !important;
+        padding: 10px 15px !important;
+        position: relative !important;
+    }
+
+    .kratos-cover .desc.desc2 h2 {
+        font-size: 26px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .kratos-cover .desc.desc2 span {
+        font-size: 14px !important;
+    }
+
+    /* --- 一言 (Hitokoto) --- */
+    .kr-hitokoto {
+        max-width: 88% !important;
+        padding: 10px 14px !important;
+        margin-top: 14px !important;
+        border-radius: 6px !important;
+    }
+
+    .kr-hitokoto-content {
+        font-size: 0.82em !important;
+        line-height: 1.5 !important;
+    }
+
+    .kr-hitokoto-from {
+        font-size: 0.75em !important;
+        margin-top: 6px !important;
+    }
+
+    /* --- Header --- */
     #kratos-header {
         background: #16171ae6 !important;
     }
 
+    /* --- 博客文章区 --- */
     #kratos-blog-post {
-        padding: 2em 0 1em !important;
+        padding: 1.5em 0 1em !important;
+    }
+
+    /* --- 文章卡片 --- */
+    .kratos-entry-post-main {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 12px !important;
+        gap: 10px !important;
+    }
+
+    .kratos-entry-thumb {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 0 56.25% !important;
+    }
+
+    .kratos-entry-thumb img,
+    .kratos-entry-thumb-img {
+        padding: 0 !important;
+        border: 0 !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* 文章卡片内边距 */
+    .kratos-entry-border {
+        padding: 0 !important;
+    }
+
+    .kratos-hentry {
+        margin-bottom: 16px !important;
+    }
+
+    /* 分类标签 */
+    .kratos-entry-header .label-link {
+        font-size: 11px !important;
+        padding: 2px 8px !important;
+    }
+
+    /* 文章标题 */
+    .kratos-entry-title {
+        font-size: 17px !important;
+        margin: 6px 0 !important;
+        line-height: 1.35 !important;
+    }
+
+    .kratos-entry-title a {
+        font-size: 17px !important;
+    }
+
+    /* 文章摘要 */
+    .kratos-entry-content p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 4px !important;
+    }
+
+    /* 文章 Meta 信息 */
+    .kratos-entry-post-meta {
+        padding: 6px 12px 10px !important;
+        font-size: 11px !important;
+    }
+
+    .kratos-entry-post-meta .pull-left {
+        font-size: 11px !important;
+    }
+
+    .kratos-entry-post-meta .read-more {
+        margin-right: 8px !important;
+        font-size: 12px !important;
     }
 
     .kratos-page-meta span {
         font-size: 9pt !important;
     }
 
+    /* --- 页面标题 --- */
+    h1.kratos-page-title.text-center {
+        font-size: 26px !important;
+        margin: 10px 0 !important;
+        padding: 10px 15px !important;
+    }
+
     .kratos-page-content embed {
         height: auto !important;
     }
 
-    h1.kratos-page-title.text-center {
-        font-size: 36px !important;
+    /* --- 页脚 --- */
+    #footer .container .row {
+        margin: 0 !important;
     }
 
-    .kratos-entry-post-main {
+    #footer .col-md-6.col-md-offset-3 {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 10px !important;
+    }
+
+    /* 版权信息堆叠 */
+    .kratos-copyright {
+        display: flex !important;
         flex-direction: column !important;
-        height: auto !important;
+        gap: 4px !important;
+        margin-bottom: 10px !important;
     }
 
-    .kratos-entry-thumb {
-        position: relative !important;
-        width: auto !important;
-        height: auto !important;
-        padding: 0 0 60% !important;
+    .kratos-copyright div {
+        display: block !important;
+        text-align: center !important;
     }
 
-    .kratos-entry-thumb img {
+    .kratos-copyright li {
+        font-size: 11px !important;
+        display: inline !important;
         padding: 0 !important;
-        border: 0 !important;
     }
 
-    .kratos-entry-post-meta .read-more {
-        margin-right: 8px !important;
+    .kratos-copyright li::after {
+        content: "";
+    }
+
+    /* 社交图标 */
+    #footer .kratos-social-icons {
+        margin-bottom: 8px !important;
+    }
+
+    #footer .kratos-social-icons li {
+        padding: 4px 10px !important;
+    }
+
+    #footer .kratos-social-icons li a {
+        font-size: 16px !important;
+    }
+
+    /* --- KR 工具按钮 --- */
+    .kr-tool .tool {
+        bottom: 12px !important;
+        right: 8px !important;
+    }
+
+    .kr-tool .box {
+        width: 34px !important;
+        height: 34px !important;
+        margin-top: 6px !important;
+        opacity: 0.75 !important;
+    }
+
+    .kr-tool .box span {
+        font-size: 14px !important;
+        line-height: 34px !important;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    /* --- 工具箱/语言切换 --- */
+    .lang-box .kr-lang-toggle {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 14px !important;
+    }
+
+    /* --- 归档页 --- */
+    #archives .arc-t {
+        width: 45% !important;
     }
 
     .hide_notice,
@@ -372,13 +568,66 @@ html[data-theme="dark"] .kr-trans-result {
         font-size: 12px !important;
     }
 
-    #archives .arc-t {
-        width: 45% !important;
+    /* --- 分类/标签页面 --- */
+    .category-list-item a,
+    .tag-clouds a {
+        font-size: 13px !important;
+    }
+
+    /* --- 文章内页 --- */
+    .kratos-page-inner {
+        padding: 15px !important;
+    }
+
+    .kratos-page-inner header h1 {
+        font-size: 22px !important;
+    }
+
+    .kratos-page-inner .kratos-post-meta span {
+        font-size: 11px !important;
+    }
+
+    /* 代码块移动端滚动 */
+    .kratos-page-inner pre,
+    .kratos-page-inner code {
+        font-size: 12px !important;
+    }
+
+    .kratos-page-inner figure,
+    .kratos-page-inner .highlight {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* --- 模态框 --- */
+    .kr-modal-content {
+        width: 90% !important;
+        max-width: 360px !important;
+        margin: 10px !important;
+    }
+
+    /* --- 侧边栏(文章页) --- */
+    .sticky-area {
+        position: static !important;
+        top: auto !important;
     }
 }
 
+/* --- 桌面端 --- */
 @media (min-width: 768px) {
     #kratos-mobile-topnav {
         display: none !important;
+    }
+}
+
+/* --- 中等屏幕 (平板竖屏) --- */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .kratos-entry-post-main {
+        height: auto !important;
     }
 }

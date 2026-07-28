@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+tmp_inspect_css.py
+*.tmp.py

@@ -271,3 +271,114 @@ html[data-theme="dark"] .kr-trans-result {
     background: #222;
     color: #ddd;
 }
+
+/* Mobile compatibility fixes */
+@media (max-width: 767px) {
+    #kratos-mobile-topnav {
+        display: block !important;
+    }
+
+    #kratos-desktop-topnav {
+        display: none !important;
+    }
+
+    .kratos-nav-toggle {
+        display: block !important;
+    }
+
+    #kratos-menu-wrap {
+        display: none !important;
+    }
+
+    .color-logo {
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 25px !important;
+        font-weight: 400 !important;
+        height: 60px !important;
+        padding: 7px !important;
+    }
+
+    .color-logo a,
+    .color-logo a:hover {
+        color: #fff !important;
+    }
+
+    .color-logo img {
+        max-width: 175px !important;
+        height: 35px !important;
+    }
+
+    .kratos-cover {
+        height: inherit !important;
+        padding: 3em 0 !important;
+    }
+
+    .kratos-cover.kratos-cover-2.text-center {
+        display: block !important;
+    }
+
+    .kratos-start {
+        height: 45px !important;
+    }
+
+    .kratos-overlay {
+        display: block !important;
+    }
+
+    #kratos-header {
+        background: #16171ae6 !important;
+    }
+
+    #kratos-blog-post {
+        padding: 2em 0 1em !important;
+    }
+
+    .kratos-page-meta span {
+        font-size: 9pt !important;
+    }
+
+    .kratos-page-content embed {
+        height: auto !important;
+    }
+
+    h1.kratos-page-title.text-center {
+        font-size: 36px !important;
+    }
+
+    .kratos-entry-post-main {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    .kratos-entry-thumb {
+        position: relative !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 0 60% !important;
+    }
+
+    .kratos-entry-thumb img {
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
+    .kratos-entry-post-meta .read-more {
+        margin-right: 8px !important;
+    }
+
+    .hide_notice,
+    .info {
+        font-size: 12px !important;
+    }
+
+    #archives .arc-t {
+        width: 45% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    #kratos-mobile-topnav {
+        display: none !important;
+    }
+}

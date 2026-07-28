@@ -542,7 +542,7 @@ html[data-theme="dark"] .kr-trans-result {
         opacity: 0.75 !important;
     }
 
-    .kr-tool .box span {
+    .kr-tool .box:not(.lang-box) span {
         font-size: 14px !important;
         line-height: 34px !important;
         display: table-cell !important;

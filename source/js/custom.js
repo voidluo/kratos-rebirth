@@ -97,135 +97,7 @@
             });
     }
 
-    // ==================== 功能3: 中英日三语翻译模块 ====================
-    function initTranslator() {
-        // 3a. Google 翻译小组件（整页翻译）- 可折叠
-        var langSwitcherHTML =
-            '<div class="kr-lang-toggle" title="语言切换" id="kr-lang-toggle">' +
-            '  <span class="fa fa-language"></span>' +
-            '</div>' +
-            '<div class="kr-lang-switcher" id="kr-lang-switcher">' +
-            '  <span class="kr-lang-btn" data-lang="zh-CN" title="中文">CN</span>' +
-            '  <span class="kr-lang-btn" data-lang="en" title="English">EN</span>' +
-            '  <span class="kr-lang-btn" data-lang="ja" title="日本語">JP</span>' +
-            '</div>';
-
-        // 注入到工具栏或页脚
-        var toolArea = document.querySelector('.kr-tool .tool');
-        if (toolArea) {
-            var langBox = document.createElement('div');
-            langBox.className = 'box lang-box';
-            langBox.innerHTML = langSwitcherHTML;
-            toolArea.insertBefore(langBox, toolArea.firstChild);
-
-            // 折叠/展开切换
-            var toggle = document.getElementById('kr-lang-toggle');
-            var switcher = document.getElementById('kr-lang-switcher');
-            var isCollapsed = localStorage.getItem('kr-lang-collapsed') === 'true';
-
-            function setCollapsed(collapsed) {
-                if (collapsed) {
-                    langBox.classList.add('kr-collapsed');
-                } else {
-                    langBox.classList.remove('kr-collapsed');
-                }
-                localStorage.setItem('kr-lang-collapsed', collapsed);
-            }
-
-            // 初始状态：默认折叠
-            setCollapsed(isCollapsed);
-
-            toggle.addEventListener('click', function () {
-                var nowCollapsed = langBox.classList.contains('kr-collapsed');
-                setCollapsed(!nowCollapsed);
-            });
-        }
-
-        // Google Translate 初始化
-        var savedLang = localStorage.getItem('kr-custom-lang') || 'zh-CN';
-
-        // 动态加载 Google Translate
-        if (savedLang !== 'zh-CN') {
-            loadGoogleTranslate(savedLang);
-        }
-
-        // 绑定语言切换事件
-        setTimeout(function () {
-            var buttons = document.querySelectorAll('.kr-lang-btn');
-            buttons.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    var lang = this.getAttribute('data-lang');
-                    // 高亮当前按钮
-                    buttons.forEach(function (b) { b.classList.remove('active'); });
-                    this.classList.add('active');
-                    // 保存语言偏好
-                    localStorage.setItem('kr-custom-lang', lang);
-                    // 切换翻译
-                    switchLanguage(lang);
-                });
-            });
-
-            // 初始高亮
-            var activeBtn = document.querySelector('.kr-lang-btn[data-lang="' + savedLang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
-        }, 500);
-
-        // 3b. 划词翻译功能
-        initSelectTranslate();
-    }
-
-    function loadGoogleTranslate(targetLang) {
-        // 如果已加载则切换
-        var googleFrame = document.querySelector('.goog-te-banner-frame');
-        var combo = document.querySelector('.goog-te-combo');
-        if (combo) {
-            combo.value = targetLang;
-            combo.dispatchEvent(new Event('change'));
-            return;
-        }
-
-        // 首次加载
-        window.googleTranslateElementInit = function () {
-            new window.google.translate.TranslateElement(
-                {
-                    pageLanguage: 'zh-CN',
-                    includedLanguages: 'zh-CN,en,ja',
-                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                },
-                'kr-google-translate'
-            );
-        };
-
-        var hiddenDiv = document.createElement('div');
-        hiddenDiv.id = 'kr-google-translate';
-        hiddenDiv.style.display = 'none';
-        document.body.appendChild(hiddenDiv);
-
-        var script = document.createElement('script');
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        document.body.appendChild(script);
-    }
-
-    function switchLanguage(lang) {
-        if (lang === 'zh-CN') {
-            // 恢复原始语言：刷新页面去掉翻译参数
-            var combo = document.querySelector('.goog-te-combo');
-            if (combo) {
-                // 还原到原始语言
-                combo.value = 'zh-CN';
-                combo.dispatchEvent(new Event('change'));
-            }
-            // 清理 URL hash
-            if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
-                history.pushState('', document.title, window.location.pathname + window.location.search);
-            }
-        } else {
-            loadGoogleTranslate(lang);
-        }
-    }
-
+    // ==================== 功能3: 划词翻译 ====================
     function initSelectTranslate() {
         var popup = document.createElement('div');
         popup.className = 'kr-trans-popup';
@@ -337,8 +209,6 @@
     }
 
     // ==================== 初始化 ====================
-    var translatorInited = false;
-
     function fixFooterCredits() {
         // 替换页脚主题名和作者链接
         var copyright = document.querySelector('.kratos-copyright');
@@ -356,12 +226,14 @@
         });
     }
 
+    var selectTranslateInited = false;
+
     function init() {
         fixFooterCredits();
         initHitokoto();
-        if (!translatorInited) {
-            initTranslator();
-            translatorInited = true;
+        if (!selectTranslateInited) {
+            initSelectTranslate();
+            selectTranslateInited = true;
         }
     }
 

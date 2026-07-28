@@ -42,134 +42,7 @@ html[data-theme="dark"] .kr-hitokoto {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* ========== 语言切换按钮 ========== */
-.lang-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-/* 折叠/展开 切换图�? */
-.kr-lang-toggle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #666;
-    background: rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    font-size: 16px;
-    line-height: 1;
-    user-select: none;
-    flex-shrink: 0;
-    z-index: 1;
-}
-
-/* 覆盖主题 .kr-tool .box span 的 table-cell，修复图标不居中 */
-.kr-lang-toggle>.fa {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 100% !important;
-    line-height: 1 !important;
-    vertical-align: middle !important;
-}
-
-.kr-lang-toggle:hover {
-    color: #fff;
-    background: #62b6e7;
-    box-shadow: 0 2px 8px rgba(98, 182, 231, 0.4);
-}
-
-html[data-theme="dark"] .kr-lang-toggle {
-    color: #aaa;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-html[data-theme="dark"] .kr-lang-toggle:hover {
-    color: #fff;
-    background: #62b6e7;
-}
-
-/* 语言按钮容器 - 默认折叠隐藏 */
-.kr-lang-switcher {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-    max-height: 120px;
-    overflow: hidden;
-    opacity: 1;
-    transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
-    margin-top: 6px;
-}
-
-/* 折叠状态 */
-.lang-box.kr-collapsed .kr-lang-switcher {
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-    pointer-events: none;
-}
-
-.kr-lang-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #666;
-    background: transparent;
-    transition: all 0.3s ease;
-    user-select: none;
-}
-
-.kr-lang-btn:hover {
-    color: #333;
-    background: rgba(0, 0, 0, 0.08);
-}
-
-.kr-lang-btn.active {
-    color: #fff;
-    background: #62b6e7;
-    box-shadow: 0 2px 8px rgba(98, 182, 231, 0.4);
-}
-
-html[data-theme="dark"] .kr-lang-btn {
-    color: #aaa;
-}
-
-html[data-theme="dark"] .kr-lang-btn:hover {
-    color: #ddd;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-html[data-theme="dark"] .kr-lang-btn.active {
-    color: #fff;
-    background: #62b6e7;
-}
-
-/* 隐藏 Google 翻译顶部横幅 */
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-body {
-    top: 0 !important;
-}
-
-.skiptranslate {
-    display: none !important;
-}
 
 /* ========== 划词翻译弹窗 ========== */
 .kr-trans-popup {
@@ -542,20 +415,13 @@ html[data-theme="dark"] .kr-trans-result {
         opacity: 0.75 !important;
     }
 
-    .kr-tool .box:not(.lang-box) span {
+    .kr-tool .box span {
         font-size: 14px !important;
         line-height: 34px !important;
         display: table-cell !important;
         vertical-align: middle !important;
         width: 34px !important;
         height: 34px !important;
-    }
-
-    /* --- 工具箱/语言切换 --- */
-    .lang-box .kr-lang-toggle {
-        width: 34px !important;
-        height: 34px !important;
-        font-size: 14px !important;
     }
 
     /* --- 归档页 --- */

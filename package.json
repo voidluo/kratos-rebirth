@@ -1,11 +1,11 @@
 {
-  "name": "kratos-rebirth-quickstart",
-  "description": "开箱即用的 Kratos : Rebirth 主题博客模板",
+  "name": "void-maple",
+  "description": "Void Maple 的 Hexo 博客",
   "version": "0.0.0",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kratos-rebirth/quickstart.git"
+    "url": "git+https://github.com/voidluo/void-maple.git"
   },
   "scripts": {
     "build": "hexo generate",

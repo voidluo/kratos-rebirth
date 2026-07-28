@@ -39,12 +39,15 @@ nav:
         - label: MD5 加密
           icon: lock
           url: /tools/md5/
+        - label: 在线翻译
+          icon: language
+          url: /tools/translate/
 
 # Footer 页脚配置
 footer:
   links:
     - icon: github
-      link: https://github.com/kratos-rebirth
+      link: https://github.com/voidluo/void-maple
     - icon: rss
       link: /atom.xml
   components:
@@ -52,7 +55,7 @@ footer:
       since: "2026/07/26 08:00:00"
       text: "本站已在风雨中飘摇"
     author:
-      homepage: "https://github.com/Candinya/Kratos-Rebirth/graphs/contributors"
+      homepage: "https://github.com/voidluo/void-maple"
     additional: # 托管信息等
       - - 由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 强力驱动
         - 在 <a href="https://vercel.com/" target="_blank">vercel</a> 暖心托管
@@ -132,7 +135,7 @@ visit_count:
 
 ################## 额外的注入代码 ##################
 additional_injections:
-  head: "<style>.kratos-cover{background-position:center 30%!important}</style>" # 搜索引擎验证，或是追加的样式表
+  head: "<style>.kratos-cover{background-position:center 30%!important}</style><link rel=\"stylesheet\" href=\"/css/custom.css\">" # 搜索引擎验证，或是追加的样式表
   footer: "" # 注入到页面主体的内容，例如额外的可见组件
-  after_footer: "" # 站点分析，或是追加的脚本
+  after_footer: "<script src=\"/js/custom.js\"></script>" # 站点分析，或是追加的脚本
   tools: "" # 注入到页面右下角浮动工具栏里的功能按钮
